@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
+    broadcast(new \App\Events\WebSocketDemoEvent('some data'));
     return view('welcome');
 });
+
+Route::get('/chats', 'ChatsController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

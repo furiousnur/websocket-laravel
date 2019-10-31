@@ -27,3 +27,8 @@ window.Echo = new Echo({
     wsPort: 6001,
     disableStats: true
 });
+
+window.Echo.channel('DemoChannel')
+.listen('WebSocketDemoEvent', (e) => {
+    console.log(e);
+});
